@@ -23,14 +23,19 @@ function divide(a, b) {
 
 function operate(operator, first, second) {
     if (operator == "add") {
-        return add(parseFloat(first), parseFloat(second));
+        result = add(parseFloat(first), parseFloat(second));
     } else if (operator == "subtract") {
-        return subtract(parseFloat(first), parseFloat(second));
+        result = subtract(parseFloat(first), parseFloat(second));
     } else if (operator == "multiply") {
-        return multiply(parseFloat(first), parseFloat(second));
+        result = multiply(parseFloat(first), parseFloat(second));
     } else if (operator == "divide") {
-        return divide(parseFloat(first), parseFloat(second));
+        if (parseFloat(second) === 0) {
+            return "Error, cannot divide by zero.";
+        } else {
+            result = divide(parseFloat(first), parseFloat(second));
+        }
     }
+    return result.toFixed(9);
 }
 
 const zeroButton = document.getElementById("zero");
