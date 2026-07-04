@@ -71,6 +71,16 @@ const operatorButtons = document.querySelectorAll(".operator");
 
 operatorButtons.forEach(function(button) {
     button.addEventListener("click", function() {
+        if (operator == null && currentInput == "") {
+            return;
+        }
+
+        if (operator != null && currentInput == "") {
+            operator = button.id;
+            display.textContent = button.textContent;
+            return;
+        }
+
         if (operator != null) {
             second = currentInput;
             currentInput = operate(operator, first, second);
@@ -85,6 +95,7 @@ operatorButtons.forEach(function(button) {
             display.textContent = button.textContent;
         }
         
+        currentInput = "";
     });
 });
 
@@ -106,6 +117,8 @@ equalsButton.addEventListener("click", function() {
         currentInput = operate(operator, first, second);
         display.textContent = currentInput;
         justCalculated = true;
+    } else {
+        display.textContent = "Please Enter the full Operation."
     }
 });
 
