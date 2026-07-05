@@ -140,3 +140,33 @@ clearButton.addEventListener("click", function() {
     currentInput = "";
     display.textContent = 0;
 });
+
+const keyToButtonId = {
+    "0" : "zero",
+    "1" : "one",
+    "2" : "two",
+    "3" : "three",
+    "4" : "four",
+    "5" : "five",
+    "6" : "six",
+    "7" : "seven",
+    "8" : "eight",
+    "9" : "nine",
+    "+" : "add",
+    "-" : "subtract",
+    "*" : "multiply",
+    "/" : "divide",
+    "." : "decimal",
+    "Enter" : "equals",
+    "=" : "equals",
+    "Delete" : "clear",
+    "Backspace" : "backspace"
+};
+
+document.addEventListener("keydown", function(event) {
+    const buttonId = keyToButtonId[event.key];
+    if (buttonId) {
+        event.preventDefault();
+        document.getElementById(buttonId).click();
+    }
+});
