@@ -170,3 +170,16 @@ document.addEventListener("keydown", function(event) {
         document.getElementById(buttonId).click();
     }
 });
+
+const backspaceButton = document.getElementById("backspace");
+
+backspaceButton.addEventListener("click", function() {
+    if (currentInput.length > 0) {
+        currentInput = currentInput.slice(0, -1);
+        if (currentInput === "") {
+            display.textContent = 0;
+        } else {
+            display.textContent = currentInput;
+        }
+    }
+})
