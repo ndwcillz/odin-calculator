@@ -22,6 +22,8 @@ function divide(a, b) {
 }
 
 function operate(operator, first, second) {
+    let result;
+
     if (operator == "add") {
         result = add(parseFloat(first), parseFloat(second));
     } else if (operator == "subtract") {
@@ -30,6 +32,7 @@ function operate(operator, first, second) {
         result = multiply(parseFloat(first), parseFloat(second));
     } else if (operator == "divide") {
         if (parseFloat(second) === 0) {
+            clearButton.click();
             return "Error, cannot divide by zero.";
         } else {
             result = divide(parseFloat(first), parseFloat(second));
@@ -69,6 +72,9 @@ digitButtons.forEach(function(button) {
             currentInput = button.textContent;
             display.textContent = currentInput;
             justCalculated = false;
+        } else if (currentInput == 0) {
+            currentInput = button.textContent;
+            display.textContent = currentInput;
         } else {
             currentInput = currentInput + button.textContent;
             display.textContent = currentInput;
