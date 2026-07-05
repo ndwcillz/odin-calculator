@@ -35,7 +35,16 @@ function operate(operator, first, second) {
             result = divide(parseFloat(first), parseFloat(second));
         }
     }
-    return result.toFixed(9);
+    return trimResult(result.toFixed(9));
+}
+
+function trimResult(num) {
+    if (num.includes(".")) {
+        num = num.replace(/0+$/, "");
+        num = num.replace(/\.$/, "");
+    }
+
+    return num;
 }
 
 const zeroButton = document.getElementById("zero");
