@@ -134,6 +134,9 @@ equalsButton.addEventListener("click", function() {
         second = currentInput;
         currentInput = operate(operator, first, second);
         display.textContent = currentInput;
+        first = currentInput;
+        second = null;
+        operator = null;
         justCalculated = true;
     } else {
         display.textContent = "Please Enter the full Operation."
