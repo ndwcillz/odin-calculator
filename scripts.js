@@ -32,7 +32,10 @@ function operate(operator, first, second) {
         result = multiply(parseFloat(first), parseFloat(second));
     } else if (operator == "divide") {
         if (parseFloat(second) === 0) {
-            clearButton.click();
+            first = null;
+            second = null;
+            operator = null;
+            currentInput = "";
             return "Error, cannot divide by zero.";
         } else {
             result = divide(parseFloat(first), parseFloat(second));
